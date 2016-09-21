@@ -91,13 +91,14 @@ void do_remove_entry(Phone_Directory& the_directory)
 	string name;
 	cout << "Enter name: ";
 	getline(cin, name);
-	if (name == the_directory.remove_entry(name)) {
+	string number = the_directory.lookup_entry(name);
+	if (number != "") {
 		the_directory.remove_entry(name);
+		cout << name << " has been removed from the directory.";
 	}
 	else {
-		cout << "The " << name << " is not in the directory\n";
+		cout << name << " is not in the directory";
 	}
-
 }
 
 void do_save(Phone_Directory& the_directory)
